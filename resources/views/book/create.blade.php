@@ -1,4 +1,3 @@
-hhj
 <div class="p-2">
     <div>
         <h1 class="text-secondary">
@@ -6,12 +5,12 @@ hhj
         </h1>
     </div>
 
-    <form method="POST" action="" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('books.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label class="form-label">Book Name (Title)</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" name="title">
-            @error('title')
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="name">
+            @error('name')
                 <div style="color: red">{{ $message }}</div>
             @enderror
 
