@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BookRequest;
+use App\Models\Book;
 use Illuminate\Http\Request;
+
 
 class BookController extends Controller
 {
@@ -14,7 +17,8 @@ class BookController extends Controller
     public function index()
     {
         //
-        return view("book.index");
+        $books = Book::paginate();
+        return view("book.index",compact('books'));
 
     }
 
@@ -34,10 +38,14 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
         //
-        
+        $data['name'] = $request->name;
+        $data['description'] = $request->description;
+
+        Book::create($data);
+        return redirect()->route('books.index')->with('success', 'Post Created Successfully');
     }
 
     /**
@@ -49,6 +57,7 @@ class BookController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
