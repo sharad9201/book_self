@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -41,6 +41,7 @@ class BookController extends Controller
     public function store(BookRequest $request)
     {
         //
+        $data['user_id'] = Auth::user()->id;
         $data['name'] = $request->name;
         $data['description'] = $request->description;
 

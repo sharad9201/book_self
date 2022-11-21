@@ -16,7 +16,7 @@
 
         </div>
         <div class="mb-3">
-            <label class="form-label">Description (Book Details)</label>
+            <label class="form-label">Description (Book Detailsp)</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" name="description"></textarea>
             @error('description')
                 <div style="color: red">{{ $message }}</div>
