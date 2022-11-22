@@ -1,5 +1,10 @@
 <div class=" d-flex justify-content-around" ml-2 px-2>
     <div class="row d-flex justify-content-around">
+
+        <div>
+            Category 
+            
+        </div>
     @foreach ($books as $book)
         {{-- <div class="flex-row"> --}}
            
@@ -11,6 +16,7 @@
                         <h5 class="card-title"> {{ $book['name'] }}</h5>
     
                         <p class="card-text"> {{ \Illuminate\Support\Str::words($book->description, 10) }} </p>
+                      
                         {{-- <a href="{{ route('posts.view_more', $post->id) }}" class="btn btn-primary">View more..</a> --}}
                     </div>
                 </div>
