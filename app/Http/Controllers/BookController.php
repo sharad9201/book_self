@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BookRequest;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +19,7 @@ class BookController extends Controller
     {
         //
         $books = Book::paginate();
-        return view("book.index",compact('books'));
-
+        return view("book.index", compact('books'));
     }
 
     /**
@@ -32,6 +32,27 @@ class BookController extends Controller
         return view("book.create");
     }
 
+    // public function category($id){
+
+
+
+    // }
+    public function category()
+    {
+        $category = Category::paginate();
+        // dd($category);
+        return view('category.create', compact('category'));
+    }
+
+    // public function category_store(){
+
+    // }
+    public function category_store(Request $request)
+    {
+
+        $data['book_id'] = Book::book()->id;
+        dd($data);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -58,7 +79,7 @@ class BookController extends Controller
     public function show($id)
     {
         //
-        
+
     }
 
     /**
